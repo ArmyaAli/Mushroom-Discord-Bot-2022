@@ -7,7 +7,7 @@ on:
   push:
     branches: [ "main" ]
     paths:
-      - ./
+      - .github/workflows/**
       - bot/**
 
 jobs:
@@ -21,6 +21,29 @@ jobs:
         node-version: 16.x
         cache: 'npm'
     - run: cd bot \
+           npm ci \
+           npm run build --if-present \
+           npm test --if-present \
+
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - .github/workflows/**
+      - dashboard/**
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Test build
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16.x
+        cache: 'npm'
+    - run: cd dashboard \
            npm ci \
            npm run build --if-present \
            npm test --if-present \
