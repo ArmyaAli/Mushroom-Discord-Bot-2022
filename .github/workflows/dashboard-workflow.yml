@@ -35,7 +35,8 @@ jobs:
     - name: set permissions
       run: chmod 400 key
     - name: SSH into the server
-      run: ssh -t -o StrictHostKeyChecking=no -i key $USER@$ENDPOINT:$DASHBOARD_PATH -t \
+      shell: bash
+      run: ssh -t -o StrictHostKeyChecking=no -i key $USER@$ENDPOINT -t \
         '
         bash -i -c \
         "
