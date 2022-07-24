@@ -31,7 +31,7 @@ jobs:
       run: 'echo "$SERVER_SSH_KEY" > key'
       shell: bash
       env:
-        SSH_KEY: ${{ secrets.SERVER_SSH_KEY }
+        SSH_KEY: ${{ secrets.SERVER_SSH_KEY }}
     - name: set permissions
       run: chmod 400 key
     - name: Create .env file and populate it
