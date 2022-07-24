@@ -32,15 +32,10 @@ jobs:
       shell: bash
       env:
         SSH_KEY: ${{ secrets.SERVER_SSH_KEY }}
-    - name: set permissions  
+    - name: set permissions
       run: chmod 400 key
-    - name: Create .env file and populate it
-      run: 'touch .env && echo "$ENV" > .env'
-      shell: bash
-      env:
-        ENV: ${{ secrets.ENV_FILE }}
     - name: Send .env file to PI
-      run: scp -o StrictHostKeyChecking=no -i key .env $USER@$ENDPOINT:~$DASHBOARD_PATH
+      run: ssh -o StrictHostKeyChecking=no -i key $USER@$ENDPOINT:~$DASHBOARD_PATH
       env:
         PORT: ${{ secrets.SSH_PORT }}
         USER: ${{ secrets.USER }}
