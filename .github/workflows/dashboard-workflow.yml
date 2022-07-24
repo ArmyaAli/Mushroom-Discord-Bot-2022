@@ -35,7 +35,7 @@ jobs:
     - name: set permissions
       run: chmod 400 key
     - name: Send .env file to PI
-      run: ssh -t -o StrictHostKeyChecking=no -i key $USER@$ENDPOINT:~$DASHBOARD_PATH -t \
+      run: ssh -t -o StrictHostKeyChecking=no -i key $USER@$ENDPOINT:$DASHBOARD_PATH -t \
         '
         bash -i -c \
         "
