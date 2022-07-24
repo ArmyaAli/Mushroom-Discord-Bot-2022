@@ -36,12 +36,7 @@ jobs:
       run: chmod 400 key
     - name: SSH into the server
       shell: bash
-      run: ssh -t -o StrictHostKeyChecking=no -i key $USER@$ENDPOINT -t \
-        '
-        bash -i -c \
-        "
-        echo "hello"
-        "'
+      run: ssh -i key $USER@$ENDPOINT 
       env:
         USER: ${{ secrets.USER }}
         ENDPOINT: ${{ secrets.ENDPOINT }}
