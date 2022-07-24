@@ -1,3 +1,3 @@
 Mushroom Bot
 
-![Image](./assets/system_design.jpg "Sysem Design")
+![Image](./docs/system_design.jpg "Sysem Design")
