@@ -34,6 +34,10 @@ jobs:
         SSH_KEY: ${{ secrets.SERVER_SSH_KEY }}
     - name: set permissions
       run: chmod 400 key
+      env:
+        USER: ${{ secrets.USER }}
+        ENDPOINT: ${{ secrets.ENDPOINT }}
+        DASHBOARD_PATH: ${{ secrets.DASHBOARD_PATH }}
     - name: Send .env file to PI
       run: ssh -o StrictHostKeyChecking=no -i key $USER@$ENDPOINT:~$DASHBOARD_PATH
       env:
