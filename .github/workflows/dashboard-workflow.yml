@@ -34,7 +34,7 @@ jobs:
         SSH_KEY: ${{ secrets.SERVER_SSH_KEY }}
     - name: set permissions
       run: chmod 400 key
-    - name: Send .env file to PI
+    - name: SSH into the server
       run: ssh -t -o StrictHostKeyChecking=no -i key $USER@$ENDPOINT:$DASHBOARD_PATH -t \
         '
         bash -i -c \
