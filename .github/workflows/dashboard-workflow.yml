@@ -45,7 +45,7 @@ jobs:
       env:
         USER: ${{ secrets.USER }}
         ENDPOINT: ${{ secrets.ENDPOINT }}
-        DASHBOARD_PATH: ${{ secrets.DASHBOARD_PATH }}
+        DASH_PATH: ${{ secrets.DASHBOARD_PATH }}
 
 
 
